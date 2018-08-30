@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<!-- <div class="bg-img" style="background-image: url('./img/cafe2.jpg');">
+			<div class="overlay"></div>
+		</div> -->
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar">
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="index.html">
+							<img class="logo" src="img/logo_name.png" alt="logo">
+							<img class="logo-alt" src="img/logo_white.png" alt="logo">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="./index.html">홈</a></li>
+					<li><a href="./index.html#about">소개</a></li>
+					<!-- <li><a href="#portfolio">카페</a></li> -->
+					<!-- <li><a href="#team">팀</a></li>
+					<li class="has-dropdown"><a href="#blog">블로그</a>
+						<ul class="dropdown">
+							<li><a href="blog-single.html">블로그 포스트</a></li>
+						</ul>
+					</li> -->
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="login.html"><button class="sign-btn navbar-right">로그인</button></a></li>
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+
+	<div>
+
+		<ul class="items">
+			<li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+				<h3 class="items__title">Place 1</h3>
+			</li>
+			<li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+				<h3 class="items__title">Place 2</h3>
+			</li>
+			<li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+				<h3 class="items__title">Place 3</h3>
+			</li>
+			<li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+				<h3 class="items__title">Place 4</h3>
+			</li>
+			<li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+				<h3 class="items__title">Place 5</h3>
+			</li>
+			<li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+				<h3 class="items__title">Place 6</h3>
+			</li>
+			<li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+				<h3 class="items__title">Place 7</h3>
+			</li>
+			<li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+				<img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+				<h3 class="items__title">Place 8</h3>
+			</li>
+		</ul>
+
+
+		<div class="map" id="map"></div>
+		  <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.js'></script>
+
+
+
+		    <script  src="js/index.js"></script>
+
+
+	</div>
+
+
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="index.html"><img src="img/logo_white.png" alt="logo"></a>
+					</div>
+					<!-- /footer logo -->
+
+					<!-- footer follow -->
+					<ul class="footer-follow">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
+					</ul>
+					<!-- /footer follow -->
+
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<p>Copyright © 2018. All Rights Reserved. Designed by
+					</div>
+					<!-- /footer copyright -->
+
+				</div>
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>

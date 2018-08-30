@@ -1,0 +1,34 @@
+
+
+<% if @post.l_users.include?(current_user) %>
+  <%= link_to (image_tag 'heart_red.png', width: 18, height: 18), like_post_path, method: :post %>
+  
+<% else %>  
+  <%= link_to (image_tag 'heart_white.png', width: 18, height: 18), like_post_path, method: :post %>
+   
+<% end %>
+
+<strong>
+  <% if @post.likes.count > 3 %>
+    <% @post.l_users.sample(3).each do |user| %>
+      <%= user.email %>님,
+    <% end %>
+    외 <%= @post.likes.count - 3 %>명이 좋아합니다.
+  <% elsif @post.likes.count > 0 %>
+    <% @post.l_users.each do |user| %>
+      <%= user.email %>님,
+    <% end %>
+    이 좋아합니다.
+  <% end %>
+</strong>
+
+
+<!-- if @post.l_users.include?(current_user)
+  link_to href: like_post_path, method: :post do
+    image_tag 'heart_red.png', width: 18, height: 18
+  end  
+else  
+  link_to href: like_post_path, method: :post do
+    image_tag 'heart_white.png', width: 18, height: 18
+  end 
+end  -->

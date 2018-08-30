@@ -1,0 +1,699 @@
+<html>
+  
+  <head>
+    
+      <meta charset="utf-8">
+    
+      <title>CariBongBong</title>
+      
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in -->
+    
+      <style>
+      .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+      .wrap * {padding: 0;margin: 0;}
+      .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+      .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+      .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+      .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+      .info .close:hover {cursor: pointer;}
+      .info .body {position: relative;overflow: hidden;}
+      .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+      .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+      .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+      .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+      .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+      .info .link {color: #5085BB;}
+      .cafe_td:hover{
+      background-color: #D4E8FF;
+      
+      
+      }
+      
+      </style>
+      
+      <!--화면 나누기 용도-->
+      <style>
+  * {
+      box-sizing: border-box;
+  }
+  
+  .body {
+      font-family: Arial;
+      padding: 10px;
+      background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+      padding: 30px;
+      text-align: center;
+      background: white;
+  }
+  
+  .header h1 {
+      font-size: 50px;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+      overflow: hidden;
+      background-color: #333;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+      float: left;
+      width: 65%;
+      /*background-color: gray;*/
+   /*-moz-column-count: 2;*/
+   /*-moz-column-gap: 20px;*/
+   /*-moz-column-fill: auto;*/
+   /*-webkit-column-count: 2;*/
+   /*-webkit-column-gap: 20px;*/
+   /*-webkit-column-fill: auto;*/
+   /*column-count: 2;*/
+   /*column-gap: 20px;*/
+   /*column-fill: auto;*/
+   /*list-style-position: inside; */
+  }
+  
+  
+  /* Right column */
+  .rightcolumn {
+      float: left;
+      width: 35%;
+      padding-top: 20px;
+      padding-right:50px; 
+      /*background-color:black;*/
+      
+      
+      /*padding-left: 20px;*/
+  }
+  
+  
+  /* Fake image */
+  .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      width: 100%;
+      
+      margin-left: 30px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+      margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+      .leftcolumn, .rightcolumn {   
+          width: 100%;
+          padding: 0;
+      }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+      .topnav a {
+          float: none;
+          width: 100%;
+      }
+  }
+  </style>
+      <!--카페 화면 사진 슬라이드 넘기기-->
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+      <!-- Bootstrap core CSS -->
+      <link href="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="https://blackrockdigital.github.io/startbootstrap-half-slider/css/half-slider.css" rel="stylesheet">
+      
+    
+    
+      
+      <!-- Google font -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+  
+  
+  
+      <!--아래 다음 지도-->
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa752167f9e0c7c351b22137409e170c&libraries=services"></script>
+  
+      <style type="text/css">
+      
+      
+    .info_font{
+      font-size : 13px;
+      text-align : center;
+      
+    }
+    .placeinfo_wrap {position:absolute;bottom:28px;left:-90px;width:180px;}
+    .placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+    .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+    .placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:10px;background:url('http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+    .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+    .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+    .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #002D56;background: #002D56 url(http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+  </style>
+  
+  </head>
+
+
+  <body onload = "searchmap('<%= @keyword %>');">
+    
+    <%= render '/layouts/header2' %>
+    <br><br>
+    <!--아래 콘센트 높은 순 Array-->
+    
+    
+    <% cst_arr = [] %>
+    <% sorted_place = [] %>
+    <% @searched_place.each do |plc| %>
+    <% cst_arr.push(plc.consent) %>
+    <% end %>
+    
+    <% cst_arr.sort! { |x,y| y <=> x }  %>
+    
+    
+    
+  
+      <% cst_arr.each do |match| %>
+        <% @searched_place.each do |place| %>
+        <% if match == place.consent %>
+        <% sorted_place.push(place) %>
+        <% end %>
+      <% end %>
+    <% end %>		        
+                    
+               <% posts_pictures = Array.new(sorted_place.size){Array.new()} %>
+                    
+              <!--슬라이드-->
+              <% i = 0 %>
+                 <% sorted_place.each do |a| %>
+                    <% a.pictures.each do |picture| %>
+                      <% posts_pictures[i].push(picture) %>
+                    <% end %>
+                    <% i += 1 %>
+                  <% end %>
+    
+    
+    <% j = 0 %>
+  
+  <!--검색 결과가 하나라도 존재할 시 (수행)-->
+  <% if sorted_place.length>0 %>
+    <div class="row">
+      <div class="leftcolumn">
+          
+          
+          <% count = 0 %>
+          <!--<div style="overflow-x:auto;">-->
+          <div>
+          <table>
+            
+            <tr>
+        
+          
+          
+          <% sorted_place.each do |post| %>
+            
+          <% if (count!=0) &&(count%2==0) %>
+            <tr>
+          <% end %>
+          
+          <!--<td style="border-spacing: 30cm 30em; padding-right:60px;">-->
+          <td class style="width:370px; height: 300px; border-spacing: 30cm 30em; padding-right:50px;">
+          
+          <div class="card cafe_td">
+        
+          
+          
+          <input type = 'hidden' class = "post_doro" value = '<%=post.detail.doro %>'/>
+           <input type= 'hidden' class= "post_title"  value='<%=post.title%>' />
+          
+            <input type= 'hidden' class = "post_x" value='<%=post.x%>' />
+          
+            <input type= 'hidden' class="post_y"  value='<%=post.y%>' />
+
+                  
+                  
+                  
+          <!--카페 이름-->
+            <h5>
+              <strong align="left"><%= post.title %></strong>
+            </h5>  
+              <span align="right"><%= post.likes.count %>개의 좋아요</span>
+            
+            
+         
+            <img src="<%= post.pictures[0].imgsrc %>" 
+            style="width: 320px; height: 180px;">
+            
+            <div id="container"></div>
+                         
+                <!--<header>-->
+                <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
+                <!--    <div class="carousel-inner" role="listbox">-->
+                      <!-- Slide One - Set the background image for this slide in the line below -->
+                <!--      <div class="carousel-item active" style="background-image: url(<%#= posts_pictures[j][0].imgsrc %>)">-->
+                <!--      </div>-->
+                <!--      <%# for n in 1..posts_pictures[j].length-1 do %>-->
+                <!--      <div class="carouppsel-item" style="background-image: url(<%#=posts_pictures[j][n].imgsrc %>)">-->
+                <!--        <div class="carousel-caption d-none d-md-block">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--      <%# end %>-->
+                <!--    </div>-->
+                <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
+                <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                <!--      <span class="sr-only">이전 사진</span>-->
+                <!--    </a>-->
+                <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
+                <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                <!--      <span class="sr-only">다음 사진</span>-->
+                <!--    </a>-->
+                <!--  </div>-->
+                <!--</header>-->
+                
+                  
+          
+                <% @info = '' %>
+                        <% @info = "#노트북 " if post.window/(post.comments.size+1) >= 0.5 %>
+                        <% @info += "#창가공부 " if post.laptop/(post.comments.size+1) >= 0.5 %>
+                        <% @info  += "#팀플 " if post.teamplay/(post.comments.size+1) >= 0.5 %>
+                        <% @info += "#칸막이 " if post.wall/(post.comments.size+1) >= 0.5 %>
+                        <% @info += "#흡연실" if post.smoke/(post.comments.size+1) >= 0.5 %>
+                        <br>
+                        
+          <input type = 'hidden' class="post_info" value ='<%=@info%>' />    
+                        
+                        
+                        
+                        
+                        <h6><strong><%= @info %></strong></h6>
+                        <!--<input type = 'hidden' class="post_info" value ='<%#=@info%>' />   -->
+                      
+                        <a href="/posts/<%=post.id%>/info" target="_blank">
+                          <h6 style="text-align: center;"><button>more!</button></h6>
+                        </a>
+                         
+                        
+                      
+                  
+         </div>
+            </td>
+            
+              <%# if (count%2)==0 %>
+              
+                  <!--<tr>-->
+                      
+                  <!--</tr>-->
+              <%# end %>
+        
+        <% count += 1 %>
+        <% if (count%2)==0 %>
+        </tr>
+        <% end %>
+        <% j += 1 %>
+                      <% end %>
+                      
+            </table>
+            </div>
+        </div>
+        
+
+        <!--End of leftcolumn-->
+    
+        
+      
+        <div class="rightcolumn">
+          
+          
+            <!--지도-->
+            <div id="map" style="position: fixed; width:35%; height:550px;">
+            </div>
+          
+          
+        </div>
+        <!--End of rightcolumn-->
+   
+     </div>
+     </div>
+     <!--End of row-->
+     
+    <!--sorted_place 의 길이가 0보다 작을 시 ( 검색결과 없을 시)-->
+    <% else %>
+      <h1 style="text-align: center;"><br><br><img style="align: center;" src="/assets/sorry.jpg"><br><br><br>죄송합니다! 검색 결과가 없습니다!</h1>
+    <% end %>
+  
+  
+  <script>
+  
+  
+  
+      var mapContainer = document.getElementById('map'),// 지도를 표시할 div 
+        mapOption = { 
+            center: new daum.maps.LatLng(37.593844, 127.052646), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+     };
+     
+        
+    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+    var map = new daum.maps.Map(mapContainer, mapOption); 
+    
+    var control = new daum.maps.ZoomControl();
+    map.addControl(control, daum.maps.ControlPosition.TOPRIGHT); 
+             
+    
+    var MARKER_WIDTH = 44, // 기본, 클릭 마커의 너비
+      MARKER_HEIGHT = 46, // 기본, 클릭 마커의 높이
+      OFFSET_X = 23, // 기본, 클릭 마커의 기준 X좌표
+      OFFSET_Y = MARKER_HEIGHT, // 기본, 클릭 마커의 기준 Y좌표
+      OVER_MARKER_WIDTH = 43, // 오버 마커의 너비
+      OVER_MARKER_HEIGHT = 52, // 오버 마커의 높이
+      OVER_OFFSET_X = 23, // 오버 마커의 기준 X좌표
+      OVER_OFFSET_Y = OVER_MARKER_HEIGHT, // 오버 마커의 기준 Y좌표
+      SPRITE_MARKER_URL = 'http://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_normal.png', // 스프라이트 마커 이미지 URL
+      SPRITE_WIDTH = 644, // 스프라이트 이미지 너비
+      SPRITE_HEIGHT = 946; // 스프라이트 이미지 높이
+    
+    
+  var markerSize = new daum.maps.Size(MARKER_WIDTH, MARKER_HEIGHT), // 기본, 클릭 마커의 크기
+      markerOffset = new daum.maps.Point(OFFSET_X, OFFSET_Y), // 기본, 클릭 마커의 기준좌표
+      overMarkerSize = new daum.maps.Size(OVER_MARKER_WIDTH, OVER_MARKER_HEIGHT), // 오버 마커의 크기
+      overMarkerOffset = new daum.maps.Point(OVER_OFFSET_X, OVER_OFFSET_Y), // 오버 마커의 기준 좌표
+      spriteImageSize = new daum.maps.Size(SPRITE_WIDTH, SPRITE_HEIGHT); // 스프라이트 이미지의 크기
+      
+      
+      
+      
+    var title = document.querySelectorAll('.post_title');
+    var x = document.querySelectorAll('.post_x');
+    var y = document.querySelectorAll('.post_y');
+    var info = document.querySelectorAll('.post_info');
+    var tds = document.querySelectorAll('.cafe_td');
+    var doro = document.querySelectorAll('.post_doro');
+  
+    
+    var normalImages = [];
+    var overlays = [];
+    var positions = [];
+    var markers = [];
+    
+    for(var j = 0 ; j < title.length ; j++){
+          var overlay = new daum.maps.CustomOverlay({
+          content: 	  '<div class = "wrap" >' +
+                      '    <div class="info">' + 
+                      '        <div class="title">' + 
+                                  title[j].value 	+
+                      '           <div class="close" onclick="closeOverlay('+j+')" title="닫기"></div>' + 
+                      '        </div>' + '<br>' +
+                      '      <div class="info_font">'+ doro[j].value   +'<br>' + '<strong>'+info[j].value +'</strong>'+' </div>' +  
+                      '    </div>' +
+                      '</div>',
+          map: map,
+          position: new daum.maps.LatLng(parseFloat(y[j].value), parseFloat(x[j].value))
+      });
+      
+      overlays.push(overlay);
+      overlay.setMap(null);
+  
+    positions.push(new daum.maps.LatLng(parseFloat(y[j].value), parseFloat(x[j].value)));
+  
+  }
+  
+    var selectedMarker = null; //클릭한 마커를 담을 변수
+  // 지도 위에 마커를 표시합니다
+  for (var i = 0, len = positions.length; i < len; i++) {
+      var gapX = MARKER_WIDTH, // 스프라이트 이미지에서 마커로 사용할 이미지 X좌표 간격 값
+          originY = MARKER_HEIGHT * i, // 스프라이트 이미지에서 기본, 클릭 마커로 사용할 Y좌표 값
+          overOriginY = OVER_MARKER_HEIGHT * i, // 스프라이트 이미지에서 오버 마커로 사용할 Y좌표 값
+          normalOrigin = new daum.maps.Point(0, originY), // 스프라이트 이미지에서 기본 마커로 사용할 영역의 좌상단 좌표
+          clickOrigin = new daum.maps.Point(86, originY), // 스프라이트 이미지에서 마우스오버 마커로 사용할 영역의 좌상단 좌표
+          overOrigin = new daum.maps.Point(259, overOriginY); // 스프라이트 이미지에서 클릭 마커로 사용할 영역의 좌상단 좌표
+         
+      
+      // 마커를 생성하고 지도위에 표시합니다
+      addMarker(positions[i], normalOrigin, overOrigin, clickOrigin, overlays[i], tds[i]);
+  }
+  
+  
+  
+  // 마커를 생성하고 지도 위에 표시하고, 마커에 mouseover, mouseout, click 이벤트를 등록하는 함수입니다
+  function addMarker(position, normalOrigin, overOrigin, clickOrigin, overlay, tds) {
+  
+      // 기본 마커이미지, 오버 마커이미지, 클릭 마커이미지를 생성합니다
+          var normalImage = createMarkerImage(markerSize, markerOffset, normalOrigin);
+          normalImages.push(normalImage);
+          var overImage = createMarkerImage(overMarkerSize, overMarkerOffset, overOrigin),
+          clickImage = createMarkerImage(markerSize, markerOffset, clickOrigin);
+      
+      // 마커를 생성하고 이미지는 기본 마커 이미지를 사용합니다
+      var marker = new daum.maps.Marker({
+          map: map,
+          position: position,
+          image: normalImage
+      });
+      
+      markers.push(marker);
+      
+      // 마커 객체에 마커아이디와 마커의 기본 이미지를 추가합니다
+      marker.normalImage = normalImage;
+      
+      // 마커에 mouseover 이벤트를 등록합니다
+      daum.maps.event.addListener(marker, 'mouseover', function() {
+  
+          // 클릭된 마커가 없고, mouseover된 마커가 클릭된 마커가 아니면
+          // 마커의 이미지를 오버 이미지로 변경합니다
+          if (!selectedMarker || selectedMarker !== marker) {
+              marker.setImage(overImage);
+          } 
+      });
+      
+      tds.addEventListener('mouseover', function () {
+         if (!selectedMarker || selectedMarker !== marker) {
+              marker.setImage(overImage);
+         }
+      });
+      
+      tds.addEventListener('mouseout', function(){
+         if (!selectedMarker || selectedMarker !== marker) {
+            marker.setImage(normalImage);
+            }
+      });
+      
+      
+      
+      tds.addEventListener('click', function(){
+        
+   if (!selectedMarker || selectedMarker !== marker) {    	 
+         !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
+         
+         marker.setImage(clickImage);
+         overlay.setMap(map);
+          
+         }
+      for(var k = 0; k < overlays.length; k ++){
+            if(overlays[k] != overlay) {
+              overlays[k].setMap(null);
+            }
+          }
+        selectedMarker = marker;
+      });
+      
+      
+      // 마커에 mouseout 이벤트를 등록합니다
+      daum.maps.event.addListener(marker, 'mouseout', function() {
+  
+          // 클릭된 마커가 없고, mouseout된 마커가 클릭된 마커가 아니면
+          // 마커의 이미지를 기본 이미지로 변경합니다
+          if (!selectedMarker || selectedMarker !== marker) {
+              marker.setImage(normalImage);
+          }
+      });
+      
+      // tds.onmouseover =  function () {
+      //           marker.setImage(overImage);
+      // };
+  
+      // 마커에 click 이벤트를 등록합니다
+      daum.maps.event.addListener(marker, 'click', function() {
+  
+          // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
+          // 마커의 이미지를 클릭 이미지로 변경합니다
+          if (!selectedMarker || selectedMarker !== marker) {
+  
+              // 클릭된 마커 객체가 null이 아니면
+              // 클릭된 마커의 이미지를 기본 이미지로 변경하고
+              !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
+              
+  
+              // 현재 클릭된 마커의 이미지는 클릭 이미지로 변경합니다
+              marker.setImage(clickImage);
+              overlay.setMap(map);
+          }
+          
+          for(var k = 0; k < overlays.length; k ++){
+            if(overlays[k] != overlay) {
+              overlays[k].setMap(null);
+            }
+          }
+          // 클릭된 마커를 현재 클릭된 마커 객체로 설정합니다
+          selectedMarker = marker;
+      });
+  }
+  
+  // MakrerImage 객체를 생성하여 반환하는 함수입니다
+  function createMarkerImage(markerSize, offset, spriteOrigin) {
+      var markerImage = new daum.maps.MarkerImage(
+          SPRITE_MARKER_URL, // 스프라이트 마커 이미지 URL
+          markerSize, // 마커의 크기
+          {
+              offset: offset, // 마커 이미지에서의 기준 좌표
+              spriteOrigin: spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표
+              spriteSize: spriteImageSize // 스프라이트 이미지의 크기
+          }
+      );
+      
+      return markerImage;
+  }          
+              
+  function closeOverlay(j) {
+    overlays[j].setMap(null);   
+    markers[j].setImage(normalImages[j]);
+    selectedMarker = null;
+  }
+              
+  //장소 검색
+  
+  
+    var ps = new daum.maps.services.Places(); 
+  
+    function searchmap(stitle)	{
+      // 키워드로 장소를 검색합니다
+      ps.keywordSearch(stitle, placesSearchCB);
+      
+      
+        $.ajax({
+          url: "https://dapi.kakao.com/v2/local/search/keyword.json",
+          data: { query: stitle,
+              page : 1,
+              size : 10
+          }, 
+          beforeSend : function(request){								
+            request.setRequestHeader("Authorization", "KakaoAK 64c634a894e225c6c4cb295a13eba793");
+          },
+          success : function(data){
+            $("#addname").text(data.documents[0].address_name);
+          }
+        });
+    }
+    
+     
+    function placesSearchCB (data, status, pagination) {
+        if (status === daum.maps.services.Status.OK) {
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            var bounds = new daum.maps.LatLngBounds();
+            bounds.extend(new daum.maps.LatLng(data[0].y, data[0].x));
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+           //	coord =	new daum.maps.LatLng(data[0].y, data[0].x);
+            
+            
+            map.setBounds(bounds);
+            map.setLevel(5);
+        } 
+    }
+    
+    
+    
+  $(function(){
+    
+  
+    $("#search-text").keyup(function(e){
+    
+    if(e.keyCode == 13) {
+    
+      var keyword = $("#search-text").val();
+      
+      $.ajax({
+          url: "https://dapi.kakao.com/v2/local/search/keyword.json",
+          data: { query: keyword,
+              page : 1,
+              size : 10
+          }, 
+          beforeSend : function(request){								
+            request.setRequestHeader("Authorization", "KakaoAK 64c634a894e225c6c4cb295a13eba793");
+          },
+          success : function(data){
+            
+            $("#search_place").val(data.documents[0].address_name);
+            $("#real-keyword").val(keyword);
+            $("#search-form").submit();
+          }
+        });
+      
+        }
+        
+    });
+    
+  
+  })(jQuery);
+  
+    </script>
+  
+  <!--아래 script 두개 이미지 슬라이드 적용-->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/jquery/jquery.min.js"></script>
+  <script src="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    
+    
+  </body>
+  
+</html>
+  
+    
+  
+  
+    
+    

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tel: MyString
+  doro: MyString
+  time: MyString
+  price: MyString
+  post: one
+
+two:
+  tel: MyString
+  doro: MyString
+  time: MyString
+  price: MyString
+  post: two

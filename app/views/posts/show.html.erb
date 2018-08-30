@@ -1,0 +1,388 @@
+<html lang="ko">
+  
+  <head>
+    <!--해쉬태그 label의 css-->
+    <style>
+      .label {
+          color: white;
+          padding: 8px;
+          font-family: Arial;
+      }
+      .success {background-color: #4CAF50;} /* Green */
+      .info {background-color: #2196F3;} /* Blue */
+      .warning {background-color: #ff9800;} /* Orange */
+      .danger {background-color: #f44336;} /* Red */ 
+      .other {background-color: #e7e7e7; color: black;} /* Gray */ 
+    </style>
+    
+    <!--posts/index 에서 가져온거-->
+    <style>
+      .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+      .wrap * {padding: 0;margin: 0;}
+      .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+      .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+      .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+      .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+      .info .close:hover {cursor: pointer;}
+      .info .body {position: relative;overflow: hidden;}
+      .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+      .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+      .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+      .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+      .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+      .info .link {color: #5085BB;}
+      .cafe_td:hover{
+      background-color: #D4E8FF;
+      }
+      
+      </style>
+      
+    <!--정수가 만든거-->
+    <style>
+      .left-content {
+        float: left;
+        width: 60%;
+        margin-right: 30px;
+      }
+      
+      .right-content {
+        float: right;
+        width: 100%;
+        margin-left: 90px;
+      }
+    </style>
+      
+    <!--아래 다음 지도-->
+    
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+  
+    <style type="text/css">
+    
+    
+    
+    
+textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 100px;
+}
+    
+    
+    
+    
+    
+   
+  </style>
+    
+    <title>카침반</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="카페 상세페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <!-- Bootstrap core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-half-slider/css/half-slider.css" rel="stylesheet">
+  </head>
+  
+  <body>
+    <header style="margin-top: 53px;">
+      <%= render '/layouts/header2' %>
+      
+      
+      <!--1개 카페의 사진들을 담을 array 생성-->
+      
+      
+        <!--그 array에 해당 사진들을 담음 -->
+        <%# @post.pictures.each do |picture| %>
+          <%# cafe_pictures.push(picture) %>
+        <%# end %>
+        
+      <% x = @cafe_pictures.length-1 %>      
+            
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+       <!--<ol class="carousel-indicators">-->
+       <!--     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
+       <!--     <li data-target="#carouselExampleIndicators" data-slide-to="<%#= i %>"></li>-->
+            <!--<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
+       <!--</ol>-->
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url(<%= @cafe_pictures[0].imgsrc %>)">
+          </div>
+          <% for i in 1..x do %>
+          <div class="carousel-item" style="background-image: url(<%= @cafe_pictures[i].imgsrc %>)">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+          <% end %>
+          <!--<ol class="carousel-indicators">-->
+          <!--  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
+          <!--  <li data-target="#carouselExampleIndicators" data-slide-to="<%#= i %>"></li>-->
+            <!--<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
+          <!--</ol>-->
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">이전 사진</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">다음 사진</span>
+        </a>
+      </div>
+    </header>
+    <!-- Page Content -->
+    <section class="py-5" style="align: center;">
+      <div class="container" style="align: center;"> 
+      
+      <div class="left-content" >
+        
+        <!--카페 이름-->
+        <h2 class="w3-center"><%= @post.title %></h2><br>
+
+        <% @info = '' %>
+        <% @info = "#노트북 " if @post.window/(@post.comments.size+1) >= 0.5 %>
+        <% @info += "#창가공부 " if @post.laptop/(@post.comments.size+1) >= 0.5 %>
+        <% @info  += "#팀플 " if @post.teamplay/(@post.comments.size+1) >= 0.5 %>
+        <% @info += "#칸막이 " if @post.wall/(@post.comments.size+1) >= 0.5 %>
+        <% @info += "#흡연실" if @post.smoke/(@post.comments.size+1) >= 0.5 %>
+        <strong><%= @info %></strong><br><br>
+
+        
+        
+        <!--<span class="label success">Success</span>-->
+        <!--<span class="label info">Info</span>-->
+        <!--<span class="label warning">Warning</span>-->
+        <!--<span class="label danger">Danger</span>-->
+        <!--<span class="label other">Other</span>-->
+        
+        전화번호: <%= @post.detail.tel %><br>
+        주소: <%= @post.detail.doro %><br>
+        영업시간: <%= @post.detail.time %><br>
+        가격대: <%= @post.detail.price %><br>
+        
+        <hr>
+        콘센트 지수: <%= @post.consent %><br>
+        <% if @post.wifi >= 2.4 %>
+        와이파이: 좋아요
+        <% elsif @post.wifi >= 1.45 %>
+        와이파이: 그냥 그래요
+        <% else %>
+        와이파이: 나빠요
+        <% end %>
+        <br>
+        <% if @post.table >= 2.4 %>
+        좌석·테이블: 좋아요
+        <% elsif @post.table >= 1.45 %>
+        좌석·테이블: 그냥 그래요
+        <% else %>
+        좌석·테이블: 나빠요
+        <% end %>
+        <br>
+        <% if @post.jam >= 2.4 %>
+        혼잡도: 좋아요
+        <% elsif @post.jam >= 1.45 %>
+        혼잡도: 그냥 그래요
+        <% else %>
+        혼잡도: 나빠요
+        <% end %>
+        <br>
+        <% if @post.rest >= 2.4 %>
+        화장실: 좋아요
+        <% elsif @post.rest >= 1.45 %>
+        화장실: 그냥 그래요
+        <% else %>
+        화장실: 나빠요
+        <% end %>
+        <br>
+        음악장르:
+        <br><br>
+        꿀tip: <%= @post.tip %>
+        
+        <br><br>
+        <%= render 'like' %>
+        
+        <br><hr>
+        
+      <% @post.comments.each do |comment| %>
+      <div class="card">
+        <h6 class="card-header">
+          <%= comment.user.email %>
+          <%#= link_to fa_icon('trash'), comment_path(comment),
+          method: :delete, data: {confirm:'댓글을 삭제하시겠습니까?'} %>
+        </h6>
+      </div class="card-body">
+        <p class="card-text"><%= comment.content %>
+        <%= time_ago_in_words(comment.created_at) %></p>
+      <% end %>    
+
+   
+
+</div>
+</div>
+  
+     
+<% if user.signed_in? %>  
+<% unless @comments_user.include?(current_user) %>
+   <div id="accordion" >
+    <div class="card">
+      <div class="card-header" id="headingOne" style="align: center;">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        
+            
+            <textarea id = "comment" type="text" rows = "1" cols="61" placeholder="평을 남겨주세요(평은 한번 작성하면 수정 및 삭제가 불가능합니다)." style="align: center;" onkeyup="auto_grow(this)"></textarea>
+            
+        </h5>
+      </div>
+        
+      
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <p>와이파이</p>
+
+              <form id = "comment_form" action="/comments" method="POST" style="align: center;" >
+              <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>  
+              <input type='hidden' name='post_id' value='<%= @post.id %>'>
+              <input id = "real_comment"  type = "hidden" name='content'>
+              
+              
+              <input  type="radio" name = "score_w" value = 'one'>나빠요
+              <input  type="radio" name = "score_w" value = 'two'>그냥 그래요
+              <input  type="radio" name = "score_w" value = 'three'>좋아요
+              
+              
+              <hr>
+              <p>좌석·테이블</p>
+              <input type="radio" name ="score_t" value = 'one'>나빠요
+              <input type="radio" name = "score_t" value = 'two'>그냥 그래요
+              <input type="radio" name = "score_t" value = 'three'>좋아요
+              <hr>
+              <p>혼잡도</p>
+              <input type="radio" name ="score_j" value = 'one'>혼잡해요
+              <input type="radio" name = "score_j" value = 'two'>그냥 그래요
+              <input type="radio" name = "score_j" value = 'three'>한적해요
+              <hr>
+              <p>화장실</p>
+              <input type="radio" name ="score_r" value = 'one'>나빠요
+              <input type="radio" name = "score_r" value = 'two'>그냥 그래요
+              <input type="radio" name = "score_r" value = 'three'>좋아요
+              <hr>
+              <p><%= @post.title %>는...(복수선택 가능)</p>
+              <input type="checkbox" name = "hash[]" value = "teamplay">팀플하기 좋아요.<br>
+              <input type="checkbox" name = "hash[]" value = "window">창가에서 공부하기 좋아요.<br>
+              <input type="checkbox" name = "hash[]" value = "laptop">노트북하기 좋아요.<br>
+              <input type="checkbox" name = "hash[]" value = "wall">칸막이 좌석이 있어요.<br>
+              <input type="checkbox" name = "hash[]" value = "smoke">흡연실이 있어요.<br>
+              <input type="checkbox" name = "hash[]" value = "none">해당사항 없어요.<br>
+          </div>
+          
+                      
+            </form>
+            
+          &nbsp; &nbsp; <button id = "chking">작성</button>
+        </div>
+      </div>
+    </div>
+  
+<% end %>
+<% end %>  
+  
+  
+ 
+<!--End of container-->
+
+
+
+
+ 
+      
+      
+    <%= render '/layouts/footer' %>
+
+<script>
+
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+
+
+
+
+
+
+
+    
+     $(function(){
+         
+      $("#chking").click(function(){
+        
+        
+     if($('#comment').val() != "평을 남겨주세요(평은 한 개만 작성할 수 있습니다.)" && $('#comment').val() && $('#comment').val() !="") {
+          var comment = $('#comment').val();
+          $('#real_comment').val(comment);
+     }else{
+       alert('댓글을 남겨주세요.');
+       return false;
+     }
+     
+     if($("#comment").val().length > 300){
+       alert('댓글은 최대 300자 제한입니다. 현재 ' + $('#comment').val().length + '자');
+       return false;
+     }
+        
+        if($('input[name="score_w"]:checked').length === 0) {
+       alert('와이파이를 체크해주세요.');
+       return false;
+    }
+      
+        if($('input[name="score_t"]:checked').length === 0) {
+       alert('테이블을 체크해주세요.');
+       return false;
+    }
+      
+       if($('input[name="score_j"]:checked').length === 0) {
+       alert('혼잡도를 체크해주세요.');
+       return false;
+    } 
+       if($('input[name="score_r"]:checked').length === 0) {
+       alert('화장실을 체크해주세요.');
+       return false;
+    } 
+     
+     if($('input[name="hash[]"]:checked').length === 0) {
+     alert('해당 카페의 정보를 체크해주세요');
+    }
+     
+      $("#comment_form").submit();
+    });
+	});
+   
+   
+
+   
+    
+    
+      
+  
+  
+
+</script>
+
+    <!--아래 script 두개 이미지 슬라이드 적용-->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/jquery/jquery.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-half-slider/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+  
+  
+  </body>
+
+</html>

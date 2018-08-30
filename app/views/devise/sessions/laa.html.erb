@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Login V5</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Google font -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="login_vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/assets/login_util.scss">
+<link rel="stylesheet" type="text/css" href="/assets/login_main.scss">
+<!--===============================================================================================-->a
+
+
+<script>
+
+
+(function ($) {
+"use strict";
+
+
+/*==================================================================
+[ Validate ]*/
+var input = $('.validate-input .input100');
+
+$('.validate-form').on('submit',function(){
+var check = true;
+
+for(var i=0; i<input.length; i++) {
+if(validate(input[i]) == false){
+showValidate(input[i]);
+check=false;
+}
+}
+
+return check;
+});
+
+
+$('.validate-form .input100').each(function(){
+$(this).focus(function(){
+hideValidate(this);
+});
+});
+
+function validate (input) {
+if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+return false;
+}
+}
+else {
+if($(input).val().trim() == ''){
+return false;
+}
+}
+}
+
+function showValidate(input) {
+var thisAlert = $(input).parent();
+
+$(thisAlert).addClass('alert-validate');
+}
+
+function hideValidate(input) {
+var thisAlert = $(input).parent();
+
+$(thisAlert).removeClass('alert-validate');
+}
+
+
+
+})(jQuery);
+
+</script>
+
+
+</head>
+
+<body>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="limiter">
+<div class="container-login100" style="background-image: url('/assets/cafe2.jpg');">
+<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+<form class="login100-form validate-form flex-sb flex-w">
+<span class="login100-form-title p-b-53">
+반가워요!
+</span>
+
+<%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="p-t-31 p-b-9">
+<span class="txt1">
+아이디
+</span>
+</div>
+<div class="wrap-input100 validate-input" data-validate = "Username is required">
+<%= f.input :email, required: false, autofocus: true, class: "input100", type: "text"%>
+<span class="focus-input100"></span>
+</div>
+
+<div class="p-t-13 p-b-9">
+<span class="txt1">
+비밀번호
+</span>
+
+<a href="/users/password/new" class="txt2 bo1 m-l-5">
+비밀번호를 잊으셨나요?
+</a>
+</div>
+<div class="wrap-input100 validate-input" data-validate = "Password is required">
+<%= f.input emojiassword, required: false, class: "input100", type: "password" %>
+<span class="focus-input100"></span>
+</div>
+
+<div class="container-login100-form-btn m-t-17">
+<%= f.button emojiubmit, "로그인", class: "login-100-form-btn" %>
+</div>
+
+<div class="w-full text-center p-t-55">
+<span class="txt2">
+아직 가입하지 않으셨나요?
+</span>
+
+<a href="/users/sign_up" class="txt2 bo1">
+회원가입
+</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+<div id="dropDownSelect1"></div>
+
+
+
+<%#= render "devise/shared/links" %>
+</body>
+</html>
+<% end %>
+less than a minute ago
+
+
+  
