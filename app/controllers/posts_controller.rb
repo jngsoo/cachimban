@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     
     @search_address = params[:search_place]
-    # @keyword = ""
+    @keyword = ""
     unless params[:real_keyword].nil?
       @keyword = params[:real_keyword]
     end
@@ -19,6 +19,8 @@ class PostsController < ApplicationController
         end
       end
     end
+    
+    
     
     
   end

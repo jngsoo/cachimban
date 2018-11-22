@@ -1,6 +1,14 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #아래는 mailgun (정수)
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: '8ed47c8942b32dfe71421d8dbbdd9552-7bbbcb78-3c8a580c',
+    domain: 'sandboxbb542a47c1b742299847106b7f281d29.mailgun.org',
+  }
+
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

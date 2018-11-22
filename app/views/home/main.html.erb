@@ -3,7 +3,7 @@
 
 <head>
 	
-	<!--Style 펼치질 않길 권장-->
+	<!--style 펼치질 않길 권장-->
 	<style>
 		// Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
@@ -4000,7 +4000,7 @@ function ChangeColor() {
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('https://s3.amazonaws.com/cachimban/images/cafe2.jpg');">
+		<div class="bg-img" style="background-image: url('/assets/cafe2.jpg');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -4071,19 +4071,19 @@ function ChangeColor() {
 							</p>
 							<h1 class="white-text">카공족들을 위한 가이드, 카침반</h1>
 						</div>
-						<!-- Search box -->	
+						<!-- 검색창 -->	
 						<div id='search-box'>
 						    <div id='search-form'>
 								<input id='search-text' placeholder='지역 또는 카페를 검색해보세요 ("회기" 검색을 권장)' type='text'/>
 								<button id='search-button'><span>검색</span></button>
 							</div>					
 						
-					    <form action='/posts/index' id='submit_form' method='POST' target='_top'>
-                          <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
-                          <input id = "search_place" name='search_place' type = 'hidden' value= "" >
-                          <input id = "real-keyword" name= 'real_keyword' type = 'hidden' value= "">
-                        </form>
-					</div>
+    					    <form action='/posts/index' id='submit_form' method='POST' target='_top'>
+                              <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+                              <input id = "search_place" name='search_place' type = 'hidden' value= "" >
+                              <input id = "real-keyword" name= 'real_keyword' type = 'hidden' value= "">
+                            </form>
+					    </div>
 					<!-- /home content -->
 
 				</div>
@@ -4146,6 +4146,9 @@ function ChangeColor() {
 				<!-- Section header -->
 				<div class="section-header text-center">
 					<h2 class="title">카페</h2>
+					
+					
+					
 				</div>
 				<!-- /Section header -->
 
@@ -4181,12 +4184,12 @@ function ChangeColor() {
 
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form">
+					<form class="contact-form" action="/home/email_send" method="POST">
 						<input type="text" class="input" placeholder="이름">
 						<input type="email" class="input" placeholder="Email">
-						<input type="text" class="input" placeholder="제목">
-						<textarea class="input" placeholder="내용"></textarea>
-						<button class="main-btn">보내기</button>
+						<input type="text" class="input" placeholder="제목" name="title">
+						<textarea class="input" placeholder="내용" name="content"></textarea>
+						<input type="submit" class="main-btn" value="전송">
 					</form>
 				</div>
 				<!-- /contact form -->
@@ -4220,10 +4223,10 @@ function ChangeColor() {
 
 					<!-- footer follow -->
 					<ul class="footer-follow">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
 						<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+						<!--<li><a href="#"><i class="fa fa-instagram"></i></a></li>-->
 						<!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 						<li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
 					</ul>

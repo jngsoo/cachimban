@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/posts/content/filter' => 'posts#filter'
   
   get '/home/login'
+  
+  post 'home/email_send' => 'home#email_send'
 
 
   

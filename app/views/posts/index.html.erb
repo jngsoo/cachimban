@@ -1,5 +1,6 @@
 <html>
   
+  
   <head>
     
       <meta charset="utf-8">
@@ -176,7 +177,7 @@
   
   
       <!--아래 다음 지도-->
-      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa752167f9e0c7c351b22137409e170c&libraries=services"></script>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<%=ENV["Kakao_Key"]%>"></script>
   
       <style type="text/css">
       
@@ -278,10 +279,13 @@
                   
                   
           <!--카페 이름-->
-            <h5>
-              <strong align="left"><%= post.title %></strong>
+            <h5 style="text-align: center;">
+              <strong><%= post.title %></strong>
             </h5>  
-              <span align="right"><%= post.likes.count %>개의 좋아요</span>
+              <span align="right"><%= post.likes.count %>개의 좋아요
+              <br>                콘센트 지수 : <%= post.consent %>
+              </span>
+              
             
             
          

@@ -228,8 +228,12 @@ textarea {
 </div>
   
      
-<% if user.signed_in? %>  
-<% unless @comments_user.include?(current_user) %>
+<% comments_user = [] %>
+<% @post.comments.each do |comment| %>
+  <% comments_user.push(comment.user) %>
+<% end %>
+<% if user_signed_in? %>
+<% unless comments_user.include?(current_user) %>
    <div id="accordion" >
     <div class="card">
       <div class="card-header" id="headingOne" style="align: center;">

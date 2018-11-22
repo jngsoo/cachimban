@@ -2,12 +2,18 @@ source 'https://rubygems.org'
 
 ruby '2.3.4'
 
+#home/main에서 contact 메일을 받기 위한 잼파일(정수)
+gem 'mailgun-ruby', '~>1.1.6'
+
 gem 'devise-bootstrap-views', '~> 1.0'
 gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem 'font-awesome-rails'
 gem 'bootstrap'
 gem 'bootstrap-sass'
 gem 'devise'
+
+#환경변수 env
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
@@ -49,11 +55,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'rails_db'
-  
 end
 
 group :production do
